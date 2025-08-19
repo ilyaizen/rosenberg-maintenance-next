@@ -16,9 +16,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/app/[locale]/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Noto Sans and Noto Sans Hebrew.
+
+## Internationalization (next-intl)
+
+- Locale-aware routes are served under `/[locale]` (e.g., `/en`, `/he`).
+- Translations live in `/messages/{locale}.json`.
+- Middleware negotiates the locale and redirects `/` to the best match.
+- Use `useTranslations()` from `next-intl` in Client/Server Components.
 
 ## Learn More
 

@@ -1,8 +1,7 @@
 {
   "companyName": "Rosenberg Maintenance",
   "header": {
-    "callNow": "Call Now (24/7)",
-    "phone": "+972 55-920-6313",
+    "callNow": "Call Now",
     "scheduleService": "Schedule Service"
   },
   "hero": {
@@ -24,7 +23,7 @@
     "gallery": "Examples Gallery",
     "contactDetails": "Contact Details",
     "location": "Kfar Hanasi, North",
-    "whatsapp": "WhatsApp: +972 55-920-6313",
+    "whatsapp": "WhatsApp:",
     "email": "ben@rosenberg-maintenance.co.il",
     "copyright": "© 2025 Rosenberg Maintenance. All rights reserved. Expert solutions for coating roofs with polyurea."
   }

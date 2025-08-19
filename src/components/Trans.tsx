@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { useI18n } from "./LanguageProvider";
+import {useTranslations} from "next-intl";
 
 export default function Trans({ id, className }: { id: string; className?: string }) {
-  const { t } = useI18n();
+  const t = useTranslations();
   return <span className={className}>{t(id)}</span>;
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import LanguageProvider from "./LanguageProvider";
 
+// Placeholder for future client providers (theme, analytics, etc.)
 export default function Providers({ children }: { children: React.ReactNode }) {
-  return <LanguageProvider>{children}</LanguageProvider>;
+  return <>{children}</>;
 }

@@ -1,0 +1,31 @@
+{
+  "companyName": "Rosenberg Maintenance",
+  "header": {
+    "callNow": "Call Now (24/7)",
+    "phone": "+972 55-920-6313",
+    "scheduleService": "Schedule Service"
+  },
+  "hero": {
+    "title": "Professional Roof & Balcony Waterproofing Solutions",
+    "p1": "Advanced polyurea waterproofing for maximum protection.",
+    "p2": "Specialized in sealing high-traffic roofs with technical installations and equipment.",
+    "cta": "Schedule Service"
+  },
+  "card": {
+    "premiumTitle": "Premium Quality Materials",
+    "premiumDesc": "First-class polymeric materials for lasting protection"
+  },
+  "footer": {
+    "companyParagraph": "Expert solutions for coating roofs with polyurea. Fast, flexible, and long-lasting protection for your property.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "whyChoose": "Why Choose Us",
+    "process": "Our Process",
+    "gallery": "Examples Gallery",
+    "contactDetails": "Contact Details",
+    "location": "Kfar Hanasi, North",
+    "whatsapp": "WhatsApp: +972 55-920-6313",
+    "email": "ben@rosenberg-maintenance.co.il",
+    "copyright": "© 2025 Rosenberg Maintenance. All rights reserved. Expert solutions for coating roofs with polyurea."
+  }
+}

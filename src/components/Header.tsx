@@ -33,10 +33,10 @@ export default function Header() {
           {/* use gap instead of space-x-* so it works in RTL */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <Image src="/whatsapp.svg" alt="WhatsApp" width={32} height={32} className="h-8 w-8" />
+              <Image src="/whatsapp.svg" style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }} alt="WhatsApp" width={32} height={32} className="h-8 w-8" />
               <div className="hidden leading-0 sm:block">
                 <div className="text-xs text-gray-500">{t("header.callNow")}:</div>
-                <a href={`tel:${PHONE_TEL}`} className="text-sm font-semibold text-[#25D366]">
+                <a href={`tel:${PHONE_TEL}`} className="text-sm font-black">
                   <span className="force-ltr inline-block">{PHONE_DISPLAY}</span>
                 </a>
               </div>

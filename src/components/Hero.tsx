@@ -97,33 +97,32 @@ export default function Hero() {
         <div className="relative z-10 max-w-2xl">
           <h1 className="mb-6 text-4xl leading-tight font-black md:text-5xl lg:text-6xl">{t("hero.title")}</h1>
           <div className="flex flex-col items-center text-center">
-          <div className="mb-8 space-y-2">
-            <p className="text-lg">{t("hero.p1")}</p>
-            <p className="text-lg">{t("hero.p2")}</p>
-          </div>
-          <div className="mt-6 flex gap-3">
-            <Button size="lg" className="cta-btn cta-lg h-16 w-60 text-xl hover:opacity-90">
-              {t("hero.cta")}
-              <ArrowRight
-                className={`${dir === "rtl" ? "mr-2" : "ml-2"} h-6 w-6`}
-                style={{ transform: dir === "rtl" ? "rotate(180deg)" : undefined }}
-              />
-            </Button>
-            <Button asChild variant="outline" size="lg" className="h-16 px-4">
-              <a
-                href={`tel:${PHONE_TEL}`}
-                aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}
-                className="flex w-60 items-center justify-center gap-3"
-              >
-
-                <span className="flex min-w-0 flex-col leading-tight text-end">
-                  <span className="text-xs text-gray-500">{t("header.callNow")}:</span>
-                  <span className="force-ltr inline-block font-semibold">{PHONE_DISPLAY}</span>
-                </span>
-                                <Image src="/whatsapp.svg" alt="WhatsApp" width={40} height={40} className="h-10 w-10" />
-              </a>
-            </Button>
-          </div>
+            <div className="mb-8 space-y-2">
+              <p className="text-lg font-medium">{t("hero.p1")}</p>
+              <p className="text-lg font-medium">{t("hero.p2")}</p>
+            </div>
+            <div className="bg-primary/40 mt-6 flex scale-125 gap-3 rounded-2xl p-4">
+              <Button size="lg" className="cta-btn cta-lg h-16 w-60 text-xl hover:opacity-90">
+                {t("hero.cta")}
+                <ArrowRight
+                  className={`${dir === "rtl" ? "mr-2" : "ml-2"} h-6 w-6`}
+                  style={{ transform: dir === "rtl" ? "rotate(180deg)" : undefined }}
+                />
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-16 px-4">
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}
+                  className="flex w-60 items-center justify-center gap-3"
+                >
+                  <span className="flex min-w-0 flex-col text-end leading-tight">
+                    <span className="text-xs text-gray-700">{t("header.callNow")}:</span>
+                    <span className="force-ltr inline-block font-black">{PHONE_DISPLAY}</span>
+                  </span>
+                  <Image src="/whatsapp.svg" style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }} alt="WhatsApp" width={40} height={40} className="h-10 w-10" />
+                </a>
+              </Button>
+            </div>
           </div>
 
           {/* <div className="mt-6">

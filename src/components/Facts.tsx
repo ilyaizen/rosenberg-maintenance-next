@@ -48,17 +48,20 @@ export default function Facts() {
 
                 {/* Large, faint icon overlay (under gradients) */}
                 <div className="absolute inset-0 z-0" aria-hidden="true">
-                  <Icon className="pointer-events-none absolute top-10 right-10 translate-x-1/2 -translate-y-1/2 origin-top-right h-20 w-20 text-white transition-transform duration-500 ease-out group-hover:scale-125" />
+                  <Icon className="pointer-events-none absolute top-20 right-20 h-40 w-40 origin-top-right translate-x-1/2 -translate-y-1/2 text-white opacity-40 transition-transform duration-500 ease-out group-hover:scale-125" />
                 </div>
 
                 {/* Overlays for readability (above icon) */}
                 <div className="absolute inset-0 z-10 bg-black/20" aria-hidden="true" />
-                <div className="absolute inset-x-0 bottom-0 z-10 h-2/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent" aria-hidden="true" />
+                <div
+                  className="absolute inset-x-0 bottom-0 z-10 h-2/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent"
+                  aria-hidden="true"
+                />
 
                 {/* Content at the bottom */}
                 <div className="absolute inset-x-0 bottom-0 z-20 p-5 text-white">
                   <div className="min-w-0">
-                    <h3 className="text-xl font-bold leading-tight drop-shadow-sm md:text-2xl">{fact.title}</h3>
+                    <h3 className="text-xl leading-tight font-bold drop-shadow-sm md:text-2xl">{fact.title}</h3>
                     <p className="mt-1 text-xs leading-snug text-white/85 md:text-sm">{fact.description}</p>
                   </div>
                 </div>

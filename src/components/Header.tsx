@@ -1,21 +1,21 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 // import LanguageSwitcher from "./LanguageSwitcher";
-import {useLocale, useTranslations} from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
+import React from "react";
 
 export default function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const dir = locale === "he" ? "rtl" : "ltr";
-  const PHONE_DISPLAY = "+972 55-920-6313";
+  const PHONE_DISPLAY = "055-920-6313";
   const PHONE_TEL = "+972559206313";
 
   return (
-    <header className="relative z-10">
+    <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -49,7 +49,7 @@ export default function Header() {
         </div>
       </div>
 
-  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[oklch(0.9953_0.0119_101.47)] to-transparent -z-10" />
+      {/* <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[oklch(0.9953_0.0119_101.47)] to-transparent -z-10" /> */}
     </header>
   );
 }

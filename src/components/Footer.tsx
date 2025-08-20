@@ -1,7 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import React from "react";
-import {useTranslations} from "next-intl";
 
 export default function Footer() {
   const t = useTranslations();
@@ -22,9 +22,9 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-4 text-lg font-semibold">{t("footer.quickLinks")}</h3>
-      <ul className="space-y-2">
+            <ul className="space-y-2">
               <li>
-        <a href="#services" className="text-background/80 hover:text-background transition-colors">
+                <a href="#services" className="text-background/80 hover:text-background transition-colors">
                   {t("footer.services")}
                 </a>
               </li>
@@ -53,7 +53,7 @@ export default function Footer() {
               <li>
                 <a href="tel:+972559206313" className="hover:text-background transition-colors">
                   <span>{t("footer.whatsapp")}</span>
-                  <span className="force-ltr inline-block ms-1">+972 55-920-6313</span>
+                  <span className="force-ltr ms-1 inline-block">+972 55-920-6313</span>
                 </a>
               </li>
               <li>

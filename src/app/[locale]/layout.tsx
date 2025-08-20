@@ -1,12 +1,13 @@
-import {NextIntlClientProvider, hasLocale} from "next-intl";
-import {notFound} from "next/navigation";
-import {routing} from "@/i18n/routing";
-import type React from "react";
-import {Noto_Sans, Noto_Sans_Hebrew} from "next/font/google";
-import "../globals.css";
-import {setRequestLocale} from "next-intl/server";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { routing } from "@/i18n/routing";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { Noto_Sans, Noto_Sans_Hebrew } from "next/font/google";
+import { notFound } from "next/navigation";
+import type React from "react";
+
+import "../globals.css";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -33,9 +34,9 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
-  const {locale} = await params;
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -62,5 +63,5 @@ export default async function LocaleLayout({
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({ locale }));
 }

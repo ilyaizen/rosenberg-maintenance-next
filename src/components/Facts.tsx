@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useTranslations } from "next-intl";
 import { Award, Building, Home, Search, Shield, Wrench } from "lucide-react";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 export default function Facts() {
@@ -16,23 +16,23 @@ export default function Facts() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t("facts.title")}</h2>
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900">{t("facts.title")}</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {facts.map((fact, index) => (
-            <Card key={index} className="h-full hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="h-full transition-shadow duration-300 hover:shadow-lg">
               <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <fact.icon className="w-6 h-6 text-blue-600" />
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
+                  <fact.icon className="h-6 w-6 text-blue-600" />
                 </div>
                 <CardTitle className="text-lg font-semibold text-gray-900">{fact.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 text-center leading-relaxed">{fact.description}</p>
+                <p className="text-center leading-relaxed text-gray-600">{fact.description}</p>
               </CardContent>
             </Card>
           ))}

@@ -11,15 +11,21 @@ import Footer from "@/components/Footer";
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  // Use the variable font with the full weight range so utilities like font-black (900) map precisely
+  weight: "variable",
+  style: ["normal"],
   display: "swap",
+  preload: true,
 });
 
 const notoSansHebrew = Noto_Sans_Hebrew({
   variable: "--font-noto-hebrew",
   subsets: ["hebrew"],
+  // Load all standard static weights to guarantee 900 is available for Hebrew glyphs
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal"],
   display: "swap",
+  preload: true,
 });
 
 export default async function LocaleLayout({

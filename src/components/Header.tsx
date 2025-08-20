@@ -37,7 +37,7 @@ export default function Header() {
                 <Phone className="h-4 w-4 text-red-500" />
               </div>
               <div className="hidden sm:block">
-                <div className="text-xs text-gray-500">{t("header.callNow")}</div>
+                <div className="text-xs text-gray-500">{t("header.callNow")}:</div>
                 <a href={`tel:${PHONE_TEL}`} className="text-sm font-semibold text-red-500">
                   <span className="force-ltr inline-block">{PHONE_DISPLAY}</span>
                 </a>
@@ -49,7 +49,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent -z-10" />
+  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[oklch(0.9953_0.0119_101.47)] to-transparent -z-10" />
     </header>
   );
 }

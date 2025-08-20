@@ -98,7 +98,7 @@ export default function Hero() {
           <h1 className="mb-6 text-4xl leading-tight font-black md:text-5xl lg:text-6xl">{t("hero.title")}</h1>
           <div className="flex flex-col items-center text-center">
             <div className="mb-8 space-y-2">
-              <p className="text-lg font-medium">{t("hero.p1")}</p>
+              <p className="text-lg font-bold">{t("hero.p1")}</p>
               <p className="text-lg font-medium">{t("hero.p2")}</p>
             </div>
             <div className="bg-primary/40 mt-6 flex scale-125 gap-3 rounded-2xl p-4">

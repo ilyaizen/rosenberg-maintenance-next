@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
 // import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -30,15 +29,14 @@ export default function Header() {
             <span className={`${dir === "rtl" ? "mr-2" : "ml-2"} text-lg font-black`}>{t("companyName")}</span>
           </div>
 
+          {/* Phone number */}
           {/* use gap instead of space-x-* so it works in RTL */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100">
-                <Phone className="h-4 w-4 text-red-500" />
-              </div>
-              <div className="hidden sm:block">
+              <Image src="/whatsapp.svg" alt="WhatsApp" width={32} height={32} className="h-8 w-8" />
+              <div className="hidden leading-0 sm:block">
                 <div className="text-xs text-gray-500">{t("header.callNow")}:</div>
-                <a href={`tel:${PHONE_TEL}`} className="text-sm font-semibold text-red-500">
+                <a href={`tel:${PHONE_TEL}`} className="text-sm font-semibold text-[#25D366]">
                   <span className="force-ltr inline-block">{PHONE_DISPLAY}</span>
                 </a>
               </div>

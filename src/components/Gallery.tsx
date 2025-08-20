@@ -207,7 +207,7 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="mb-12 text-center text-4xl font-bold text-gray-800">{t("gallery.title")}</h2>
+      <h2 className="mb-12 text-center text-4xl font-black text-gray-800">{t("gallery.title")}</h2>
 
       <div className="space-y-16">
         {gallerySections.map((section, sectionIdx) => (

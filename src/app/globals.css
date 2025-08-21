@@ -255,11 +255,11 @@
     unicode-bidi: bidi-override;
   }
 
-  /* Direction-aware hero overlay gradient: default LTR */
+  /* Direction-aware hero overlay gradient: theme-aware */
   .hero-overlay-gradient {
-    background: linear-gradient(90deg, oklch(0.9953 0.0119 101.47) 0%, oklch(0.9953 0.0119 101.47 / 0) 100%);
+    background: linear-gradient(to right, var(--background) 0%, transparent 100%);
   }
   [dir="rtl"] .hero-overlay-gradient {
-    background: linear-gradient(90deg, oklch(0.9953 0.0119 101.47) 0%, oklch(0.9953 0.0119 101.47 / 0) 100%);
+    background: linear-gradient(to left, var(--background) 0%, transparent 100%);
   }
 }

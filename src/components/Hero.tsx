@@ -7,13 +7,16 @@ import { ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
+import { useTheme } from "@/components/Providers";
 
 export default function Hero() {
   const t = useTranslations();
   const locale = useLocale();
   const dir: "ltr" | "rtl" = locale === "he" ? "rtl" : "ltr";
+  const { theme } = useTheme();
   const PHONE_DISPLAY = "055-920-6313";
   const PHONE_TEL = "+972559206313";
+  const logoSrc = theme === "dark" ? "/rosenberg-maintenance-svg-full.he.white.svg" : "/rosenberg-maintenance-svg-full.he.svg";
 
   return (
     <section
@@ -27,12 +30,8 @@ export default function Hero() {
         transform: dir === "rtl" ? "scaleX(-1)" : undefined,
       }}
     >
-      {/* Uniform 50% site off-white overlay over the background image */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{ backgroundColor: "oklch(0.9953 0.0119 101.47 / 0.5)" }}
-        aria-hidden="true"
-      />
+      {/* Uniform 50% site background overlay (tokenized) */}
+      <div className="bg-background/50 pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
       {/* Direction-aware gradient via CSS class toggled by [dir] */}
       {/* Content-width gradient overlay (max-w-7xl), with a solid white side and fade to transparent. */}
       <div
@@ -42,18 +41,18 @@ export default function Hero() {
         <div
           className="absolute inset-0"
           style={{
-            // Off-white side near content (LTR: left, RTL: right), then fade to transparent
+            // Side near content uses theme background color, fading to transparent
             backgroundImage:
               dir === "rtl"
-                ? "linear-gradient(to left, oklch(0.9953 0.0119 101.47) 0%, oklch(0.9953 0.0119 101.47) 12%, oklch(0.9953 0.0119 101.47 / 0.7) 28%, oklch(0.9953 0.0119 101.47 / 0) 65%)"
-                : "linear-gradient(to right, oklch(0.9953 0.0119 101.47) 0%, oklch(0.9953 0.0119 101.47) 12%, oklch(0.9953 0.0119 101.47 / 0.7) 28%, oklch(0.9953 0.0119 101.47 / 0) 65%)",
+                ? "linear-gradient(to left, var(--background) 0%, var(--background) 12%, color-mix(in oklab, var(--background) 70%, transparent) 28%, transparent 65%)"
+                : "linear-gradient(to right, var(--background) 0%, var(--background) 12%, color-mix(in oklab, var(--background) 70%, transparent) 28%, transparent 65%)",
           }}
         />
 
         {/* Side-fill: extend solid white from the container edge to the viewport edge on the white side */}
         <div
           className={`pointer-events-none absolute inset-y-0 ${dir === "rtl" ? "left-full" : "right-full"} z-10 hidden w-[50vw] xl:block`}
-          style={{ backgroundColor: "oklch(0.9953 0.0119 101.47)" }}
+          style={{ backgroundColor: "var(--background)" }}
         />
       </div>
 
@@ -71,18 +70,18 @@ export default function Hero() {
           >
             {/* Wrapper to position the radial gradient behind the logo at the same size */}
             <div className="relative">
-              {/* Radial gradient glow: off-white center to transparent edges */}
+              {/* Radial gradient glow: theme background center to transparent edges */}
               <div
                 className="absolute inset-0 blur-xl"
                 style={{
                   background:
-                    "radial-gradient(circle, oklch(0.9953 0.0119 101.47) 0%, oklch(0.9953 0.0119 101.47 / 0.85) 50%, oklch(0.9953 0.0119 101.47 / 0) 100%)",
+                    "radial-gradient(circle, var(--background) 0%, color-mix(in oklab, var(--background) 85%, transparent) 50%, transparent 100%)",
                 }}
                 aria-hidden="true"
               />
               <Image
-                style={{ filter: "drop-shadow(1px 1px 1px rgba(53, 89, 106, .8)" }}
-                src="/rosenberg-maintenance-svg-full.he.svg"
+                style={{ filter: "drop-shadow(1px 1px 1px rgba(53, 89, 106, .8))" }}
+                src={logoSrc}
                 alt="rosenberg-maintenance-logo"
                 width={1200}
                 height={1200}

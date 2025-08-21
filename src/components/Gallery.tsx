@@ -207,18 +207,17 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="mb-12 text-center text-4xl font-black text-gray-800">{t("gallery.title")}</h2>
+      <h2 className="mb-12 text-center text-4xl font-black">{t("gallery.title")}</h2>
 
       <div className="space-y-16">
         {gallerySections.map((section, sectionIdx) => (
           <div
             key={section.id}
-            className="rounded-xl p-6 shadow-lg sm:p-8"
-            style={{ backgroundColor: "oklch(0.9953 0.0119 122.47)" }}
+            className="bg-card text-card-foreground ring-border rounded-xl p-6 shadow-lg ring-1 sm:p-8"
           >
             <div className="mb-6 text-center sm:mb-8">
-              <h3 className="mb-2 text-2xl font-bold text-gray-800 sm:mb-4">{section.title}</h3>
-              <p className="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg">{section.description}</p>
+              <h3 className="mb-2 text-2xl font-bold sm:mb-4">{section.title}</h3>
+              <p className="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">{section.description}</p>
             </div>
 
             <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-5 md:gap-6 xl:grid-cols-6">
@@ -226,7 +225,7 @@ export default function Gallery() {
                 <button
                   key={idx}
                   type="button"
-                  className="group cursor-pointer overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  className="group focus:ring-ring cursor-pointer overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none"
                   onClick={() => openModal(sectionIdx, idx)}
                   aria-label={image.alt}
                 >

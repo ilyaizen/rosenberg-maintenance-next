@@ -1,5 +1,6 @@
 "use client";
 
+import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 // import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
@@ -14,7 +15,7 @@ export default function Header() {
   const PHONE_TEL = "+972559206313";
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md">
+    <header className="bg-background/70 border-border/50 sticky top-0 z-50 w-full border-b backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -31,16 +32,24 @@ export default function Header() {
 
           {/* Phone number */}
           {/* use gap instead of space-x-* so it works in RTL */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-2">
-              <Image src="/whatsapp.svg" style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }} alt="WhatsApp" width={32} height={32} className="h-8 w-8" />
+              <Image
+                src="/whatsapp.svg"
+                style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }}
+                alt="WhatsApp"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <div className="hidden leading-0 sm:block">
-                <div className="text-xs text-gray-500">{t("header.callNow")}:</div>
+                <div className="text-muted-foreground text-xs">{t("header.callNow")}:</div>
                 <a href={`tel:${PHONE_TEL}`} className="text-sm font-black">
                   <span className="force-ltr inline-block">{PHONE_DISPLAY}</span>
                 </a>
               </div>
             </div>
+            <ThemeToggle />
             <Button className="cta-btn px-6 hover:opacity-90">{t("header.scheduleService")}</Button>
             {/* <LanguageSwitcher /> */}
           </div>

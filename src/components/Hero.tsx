@@ -116,10 +116,17 @@ export default function Hero() {
                   className="flex w-60 items-center justify-center gap-3"
                 >
                   <span className="flex min-w-0 flex-col text-end leading-tight">
-                    <span className="text-xs text-gray-700">{t("header.callNow")}:</span>
+                    <span className="text-muted-foreground text-xs">{t("header.callNow")}:</span>
                     <span className="force-ltr inline-block font-black">{PHONE_DISPLAY}</span>
                   </span>
-                  <Image src="/whatsapp.svg" style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }} alt="WhatsApp" width={40} height={40} className="h-10 w-10" />
+                  <Image
+                    src="/whatsapp.svg"
+                    style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }}
+                    alt="WhatsApp"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                  />
                 </a>
               </Button>
             </div>

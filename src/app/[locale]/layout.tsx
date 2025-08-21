@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Providers from "@/components/Providers";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -49,12 +50,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={dir} className={`${notoSans.variable} ${notoSansHebrew.variable}`}>
+      <head></head>
       <body>
         <div className="min-h-screen">
           <NextIntlClientProvider>
-            <Header />
-            {children}
-            <Footer />
+            <Providers>
+              <Header />
+              {children}
+              <Footer />
+            </Providers>
           </NextIntlClientProvider>
         </div>
       </body>

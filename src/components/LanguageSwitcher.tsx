@@ -18,14 +18,14 @@ export default function LanguageSwitcher() {
     <div className="flex items-center gap-2">
       <button
         onClick={() => switchTo("en")}
-        className={`rounded px-2 py-1 ${locale === "en" ? "bg-slate-800 text-white" : "bg-slate-100"}`}
+        className={`rounded px-2 py-1 ${locale === "en" ? "bg-foreground text-background" : "bg-accent text-accent-foreground"}`}
         aria-pressed={locale === "en"}
       >
         EN
       </button>
       <button
         onClick={() => switchTo("he")}
-        className={`rounded px-2 py-1 ${locale === "he" ? "bg-slate-800 text-white" : "bg-slate-100"}`}
+        className={`rounded px-2 py-1 ${locale === "he" ? "bg-foreground text-background" : "bg-accent text-accent-foreground"}`}
         aria-pressed={locale === "he"}
       >
         HE

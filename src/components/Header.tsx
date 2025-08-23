@@ -1,8 +1,9 @@
 "use client";
 
-import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-import LanguageSwitcher from "./LanguageSwitcher";
+import { useTheme } from "@/components/Providers";
+// import ThemeToggle from "@/components/ThemeToggle";
+// import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
@@ -11,8 +12,11 @@ export default function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const dir = locale === "he" ? "rtl" : "ltr";
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const PHONE_DISPLAY = "055-920-6313";
   const PHONE_TEL = "+972559206313";
+  const logoSrc = isDark ? "/rosenberg-maintenance-svg-white.svg" : "/rosenberg-maintenance-svg.svg";
 
   return (
     <header className="bg-background/70 border-border/50 sticky top-0 z-50 w-full border-b backdrop-blur-md">
@@ -20,7 +24,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Image
-              src="/rosenberg-maintenance-svg.svg"
+              src={logoSrc}
               alt={t("companyName")}
               className="h-12 w-auto"
               width={48}
@@ -50,8 +54,8 @@ export default function Header() {
               </div>
             </div>
             <Button className="cta-btn px-6 hover:opacity-90">{t("header.scheduleService")}</Button>
-            <ThemeToggle />
-            <LanguageSwitcher />
+            {/* <ThemeToggle />
+            <LanguageSwitcher /> */}
           </div>
         </div>
       </div>

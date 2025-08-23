@@ -16,13 +16,15 @@ export default function Hero() {
   const { theme } = useTheme();
   const PHONE_DISPLAY = "055-920-6313";
   const PHONE_TEL = "+972559206313";
-  // Choose logo based on locale; use white variant for Hebrew dark theme when available
+  // Choose logo based on locale; use white variant for dark theme
   const logoSrc =
     locale === "he"
       ? theme === "dark"
         ? "/rosenberg-maintenance-svg-full.he.white.svg"
         : "/rosenberg-maintenance-svg-full.he.svg"
-      : "/rosenberg-maintenance-svg-full.en.svg";
+      : theme === "dark"
+        ? "/rosenberg-maintenance-svg-full.en.white.svg"
+        : "/rosenberg-maintenance-svg-full.en.svg";
 
   return (
     <section
@@ -37,7 +39,7 @@ export default function Hero() {
       }}
     >
       {/* Uniform 50% site background overlay (tokenized) */}
-      <div className="bg-background/50 pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
+      <div className="bg-background/25 pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
       {/* Direction-aware gradient via CSS class toggled by [dir] */}
       {/* Content-width gradient overlay (max-w-7xl), with a solid white side and fade to transparent. */}
       <div

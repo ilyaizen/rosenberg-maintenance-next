@@ -1,4 +1,4 @@
-import Facts from "@/components/Facts";
+import Process from "@/components/Process";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import { setRequestLocale } from "next-intl/server";
@@ -10,7 +10,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
   return (
     <>
       <Hero />
-      <Facts />
+      <Process />
       <Gallery />
     </>
   );

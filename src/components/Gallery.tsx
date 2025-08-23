@@ -221,7 +221,7 @@ export default function Gallery() {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-5 md:gap-6 xl:grid-cols-6">
-              {section.images.map((image, idx) => (
+        {section.images.map((image, idx) => (
                 <button
                   key={idx}
                   type="button"
@@ -229,7 +229,7 @@ export default function Gallery() {
                   onClick={() => openModal(sectionIdx, idx)}
                   aria-label={image.alt}
                 >
-                  <div className="relative aspect-square overflow-hidden">
+          <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
                     <Image
                       src={image.src}
                       alt={image.alt}

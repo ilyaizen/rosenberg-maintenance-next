@@ -27,29 +27,29 @@
     "email": "ben@rosenberg-maintenance.co.il",
     "copyright": "© 2025 Rosenberg Maintenance. All rights reserved. Expert solutions for coating roofs with polyurea."
   },
-  "facts": {
-    "title": "Facts about Rosenberg Maintenance",
-    "fact1": {
+  "process": {
+    "title": "Our Process",
+    "process1": {
       "title": "Roof sealing with solar systems",
       "description": "Roof waterproofing that integrates solar solutions for energy savings and advanced protection"
     },
-    "fact2": {
+    "process2": {
       "title": "Thorough surface preparation",
       "description": "Cleaning, drying and priming to ensure optimal coating adhesion"
     },
-    "fact3": {
+    "process3": {
       "title": "Inspections and leak detection",
       "description": "Comprehensive scans to locate leak sources and verify coating integrity before and after work"
     },
-    "fact4": {
+    "process4": {
       "title": "Balcony and specialty areas waterproofing",
       "description": "Tailored waterproofing for balconies, sun decks and heavy foot-traffic parking areas"
     },
-    "fact5": {
+    "process5": {
       "title": "General sealing in multiple technologies",
       "description": "Acrylics, polyurea and other specialty systems on request"
     },
-    "fact6": {
+    "process6": {
       "title": "Uncompromising quality",
       "description": "Adherence to international standards with engineering oversight for every project"
     }

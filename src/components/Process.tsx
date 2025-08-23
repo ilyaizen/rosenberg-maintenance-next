@@ -4,42 +4,42 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
-export default function Facts() {
+export default function Process() {
   const t = useTranslations();
 
-  const facts = [
-    { icon: Shield, title: t("facts.fact1.title"), description: t("facts.fact1.description") },
-    { icon: Wrench, title: t("facts.fact2.title"), description: t("facts.fact2.description") },
-    { icon: Search, title: t("facts.fact3.title"), description: t("facts.fact3.description") },
-    { icon: Building, title: t("facts.fact4.title"), description: t("facts.fact4.description") },
-    { icon: Home, title: t("facts.fact5.title"), description: t("facts.fact5.description") },
-    { icon: Award, title: t("facts.fact6.title"), description: t("facts.fact6.description") },
+  const process = [
+    { icon: Shield, title: t("process.process1.title"), description: t("process.process1.description") },
+    { icon: Wrench, title: t("process.process2.title"), description: t("process.process2.description") },
+    { icon: Search, title: t("process.process3.title"), description: t("process.process3.description") },
+    { icon: Building, title: t("process.process4.title"), description: t("process.process4.description") },
+    { icon: Home, title: t("process.process5.title"), description: t("process.process5.description") },
+    { icon: Award, title: t("process.process6.title"), description: t("process.process6.description") },
   ];
 
-  // Map each fact to its background image in order (1.png ... 6.png)
+  // Map each process to its background image in order (1.png ... 6.png)
   const bgImages = Array.from({ length: 6 }, (_, i) => `/images/about/${i + 1}.png`);
 
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-black">{t("facts.title")}</h2>
+          <h2 className="mb-4 text-3xl font-black">{t("process.title")}</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {facts.map((fact, index) => {
+          {process.map((process, index) => {
             const src = bgImages[index % bgImages.length];
-            const Icon = fact.icon;
+            const Icon = process.icon;
             return (
               <Card
                 key={index}
                 className="group relative h-56 overflow-hidden rounded-xl border-0 shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:shadow-xl md:h-64"
-                title={fact.title}
+                title={process.title}
               >
                 {/* Background image with zoom on hover */}
                 <Image
                   src={src}
-                  alt={fact.title}
+                  alt={process.title}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   priority={index < 2}
@@ -61,8 +61,8 @@ export default function Facts() {
                 {/* Content at the bottom */}
                 <div className="absolute inset-x-0 bottom-0 z-20 p-5 text-white">
                   <div className="min-w-0">
-                    <h3 className="text-xl leading-tight font-bold drop-shadow-sm md:text-2xl">{fact.title}</h3>
-                    <p className="mt-1 text-xs leading-snug text-white/85 md:text-sm">{fact.description}</p>
+                    <h3 className="text-xl leading-tight font-bold drop-shadow-sm md:text-2xl">{process.title}</h3>
+                    <p className="mt-1 text-xs leading-snug text-white/85 md:text-sm">{process.description}</p>
                   </div>
                 </div>
               </Card>

@@ -27,7 +27,7 @@ export default function Hero() {
 
   return (
     <section
-  className="relative mr-[calc(50%-50vw)] ml-[calc(50%-50vw)] flex min-h-[600px] items-center overflow-hidden"
+  className="relative mr-[calc(50%-50vw)] ml-[calc(50%-50vw)] flex min-h-[460px] sm:min-h-[520px] md:min-h-[600px] items-center overflow-hidden py-14 sm:py-20 md:py-24"
       style={{
         backgroundImage: "url(/roof-coating_cr.jpg)",
         backgroundSize: "cover",
@@ -72,7 +72,7 @@ export default function Hero() {
       >
         {/* Faded watermark logo for both directions; positioned per locale */}
         <div
-          className={`pointer-events-none absolute inset-y-0 ${dir === "rtl" ? "left-0 pl-4 sm:pl-8" : "right-0 pr-4 sm:pr-8"} z-0 flex items-center`}
+          className={`pointer-events-none absolute inset-y-0 ${dir === "rtl" ? "left-0 pl-4 sm:pl-8 -translate-x-4 sm:translate-x-0" : "right-0 pr-4 sm:pr-8 translate-x-4 sm:translate-x-0"} z-0 hidden items-center transition-transform sm:flex`}
           aria-hidden="true"
         >
           {/* Wrapper to position the radial gradient behind the logo at the same size */}
@@ -93,8 +93,8 @@ export default function Hero() {
               width={1200}
               height={1200}
               priority={false}
-              className="relative z-10 h-40 w-auto select-none sm:h-56 md:h-64 lg:h-80 xl:h-[28rem]"
-              sizes="(max-width: 640px) 10rem, (max-width: 768px) 14rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 28rem"
+              className="relative z-10 h-36 w-auto select-none opacity-90 sm:h-48 sm:opacity-95 md:h-64 md:opacity-100 lg:h-80 xl:h-[28rem]"
+              sizes="(max-width: 640px) 9rem, (max-width: 768px) 12rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 28rem"
               draggable={false}
             />
           </div>

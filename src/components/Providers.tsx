@@ -6,20 +6,17 @@ type Theme = "light" | "dark";
 
 type ThemeContextValue = {
   theme: Theme;
-  setTheme: (t: Theme) => void;
-  toggleTheme: () => void;
 };
 
 const ThemeContext = React.createContext<ThemeContextValue | undefined>(undefined);
 
-function getPreferredTheme(): Theme {
+function getSystemTheme(): Theme {
   try {
-    const stored = window.localStorage.getItem("theme");
-    if (stored === "light" || stored === "dark") return stored;
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  } catch {
-    return "light";
-  }
+    if (typeof window !== "undefined" && window.matchMedia) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+  } catch {}
+  return "light";
 }
 
 function applyThemeToDom(theme: Theme) {
@@ -31,33 +28,42 @@ function applyThemeToDom(theme: Theme) {
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = React.useState<Theme>("light");
 
-  // Initialize from system/localStorage on first client render
+  // Initialize from system preference and subscribe to changes
   React.useEffect(() => {
-    const initial = getPreferredTheme();
+    const initial = getSystemTheme();
     setThemeState(initial);
     applyThemeToDom(initial);
+
+    let mql: MediaQueryList | null = null;
+    const handleChange = (e: MediaQueryListEvent) => {
+      const next: Theme = e.matches ? "dark" : "light";
+      setThemeState(next);
+      applyThemeToDom(next);
+    };
+
+    try {
+      if (window.matchMedia) {
+        mql = window.matchMedia("(prefers-color-scheme: dark)");
+        if (typeof mql.addEventListener === "function") mql.addEventListener("change", handleChange);
+  else if (typeof mql.addListener === "function") mql.addListener(handleChange);
+      }
+    } catch {}
+
+    return () => {
+      if (!mql) return;
+      try {
+        if (typeof mql.removeEventListener === "function") mql.removeEventListener("change", handleChange);
+  else if (typeof mql.removeListener === "function") mql.removeListener(handleChange);
+      } catch {}
+    };
   }, []);
 
-  // Keep DOM and storage in sync when theme changes
+  // Keep DOM in sync when theme changes
   React.useEffect(() => {
     applyThemeToDom(theme);
-    try {
-      window.localStorage.setItem("theme", theme);
-    } catch {}
   }, [theme]);
 
-  const setTheme = React.useCallback((t: Theme) => {
-    setThemeState(t);
-  }, []);
-
-  const toggleTheme = React.useCallback(() => {
-    setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
-  }, []);
-
-  const value = React.useMemo<ThemeContextValue>(
-    () => ({ theme, setTheme, toggleTheme }),
-    [theme, setTheme, toggleTheme]
-  );
+  const value = React.useMemo<ThemeContextValue>(() => ({ theme }), [theme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

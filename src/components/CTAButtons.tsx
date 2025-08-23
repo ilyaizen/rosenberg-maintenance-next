@@ -26,17 +26,17 @@ export default function CTAButtons({
       dir={dir}
       className={`bg-primary/10 ring-primary/10 dark:bg-primary/20 dark:ring-primary/15 mt-6 flex flex-wrap items-stretch justify-center gap-3 rounded-full p-3 shadow-sm ring-1 sm:gap-4 sm:p-4 ${className}`}
     >
-      <Button asChild variant="cta" size="lg" className="cta-lg rounded-full px-8 py-8 text-xl hover:opacity-95">
+      <Button asChild variant="cta" size="lg" className="cta-lg rounded-full px-4 py-8 text-xl hover:opacity-95">
         <a
           href={`tel:${phoneTel}`}
           aria-label={`${t("header.callNow")}: ${phoneDisplay}`}
           className="flex items-center"
         >
-          {t("hero.cta")}
           <ArrowRight
-            className={`${dir === "rtl" ? "mr-2" : "ml-2"} h-6 w-6`}
+            className={`${dir === "rtl" ? "ml-2" : "mr-2"} h-6 w-6`}
             style={{ transform: dir === "rtl" ? "rotate(180deg)" : undefined }}
           />
+          {t("hero.cta")}
         </a>
       </Button>
 
@@ -51,18 +51,17 @@ export default function CTAButtons({
           aria-label={`${t("header.callNow")}: ${phoneDisplay}`}
           className="flex items-center justify-center gap-3 sm:gap-4"
         >
+          <Image
+            src="/whatsapp.svg"
+            alt="WhatsApp"
+            width={40}
+            height={40}
+            className="h-10 w-10 me-3"
+          />
           <span className="flex min-w-0 flex-col text-end leading-tight">
             <span className="text-muted-foreground text-xs">{t("header.callNow")}:</span>
             <span className="force-ltr text-primary inline-block text-xl font-black">{phoneDisplay}</span>
           </span>
-          <Image
-            src="/whatsapp.svg"
-            style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }}
-            alt="WhatsApp"
-            width={40}
-            height={40}
-            className="h-10 w-10"
-          />
         </a>
       </Button>
     </div>

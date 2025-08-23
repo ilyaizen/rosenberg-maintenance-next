@@ -2,8 +2,6 @@
 
 import { useTheme } from "@/components/Providers";
 import { Button } from "@/components/ui/button";
-// import ThemeToggle from "@/components/ThemeToggle";
-// import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useCallback } from "react";
@@ -88,8 +86,6 @@ export default function Header() {
                 {t("header.scheduleService")}
               </a>
             </Button>
-            {/* <ThemeToggle />
-            <LanguageSwitcher /> */}
           </div>
         </div>
       </div>

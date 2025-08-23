@@ -78,19 +78,21 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">{t("footer.contactDetails")}</h3>
             <ul className="text-background/80 space-y-2">
-              <li>{t("footer.location")}</li>
+              <li>
+                <a href="https://maps.app.goo.gl/3Vf9RD2xhw58uYhj9" target="_blank" className="font-bold">{t("footer.location")}</a>
+                </li>
               <li>
                 <a
                   href="https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number"
                   target="_blank"
                   className="hover:text-background transition-colors"
                 >
-                  <span>{t("footer.whatsapp")}</span>
-                  <span className="force-ltr ms-1 inline-block">055-920-6313</span>
+                  <span>{t("footer.whatsapp")}:</span>
+                  <span className="force-ltr ms-1 inline-block font-bold">055-920-6313</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:ben@rosenberg-maintenance.co.il" className="hover:text-background transition-colors">
+                <a href="mailto:ben@rosenberg-maintenance.co.il" className="font-bold hover:text-background transition-colors">
                   {t("footer.email")}
                 </a>
               </li>

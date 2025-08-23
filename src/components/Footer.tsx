@@ -79,7 +79,7 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold">{t("footer.contactDetails")}</h3>
             <ul className="text-background/80 space-y-2 underline">
               <li>
-                <a href="https://maps.app.goo.gl/3Vf9RD2xhw58uYhj9" target="_blank" className="font-bold">{t("footer.location")}</a>
+                <a href="https://maps.app.goo.gl/3Vf9RD2xhw58uYhj9" target="_blank" className="hover:text-background font-bold">{t("footer.location")}</a>
                 </li>
               <li>
                 <a

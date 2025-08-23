@@ -66,11 +66,10 @@ export default function Header() {
             >
               <Image
                 src="/whatsapp.svg"
-                style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }}
                 alt="WhatsApp"
                 width={32}
                 height={32}
-                className="h-8 w-8"
+                className="h-8 w-8 mx-2"
               />
               <div className="hidden leading-0 sm:block">
                 <div className="text-muted-foreground text-xs">{t("header.callNow")}:</div>

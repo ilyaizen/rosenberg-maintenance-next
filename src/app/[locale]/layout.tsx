@@ -3,7 +3,8 @@ import Header from "@/components/Header";
 import Providers from "@/components/Providers";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
 import { Noto_Sans, Noto_Sans_Hebrew } from "next/font/google";
 import { notFound } from "next/navigation";
 import type React from "react";
@@ -68,4 +69,82 @@ export default async function LocaleLayout({
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+// Localized metadata for each locale
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) return {};
+
+  const t = await getTranslations({ locale });
+
+  // Helper to safely read optional translation keys
+  const tr = (key: string): string | null => {
+    try {
+      const value = t(key) as unknown as string;
+      if (!value || value === key) return null;
+      return value;
+    } catch {
+      return null;
+    }
+  };
+
+  const siteName = tr("companyName") ?? "Rosenberg Maintenance";
+  const title = tr("seo.title") ?? tr("hero.title") ?? siteName;
+  const description = tr("seo.description") ?? tr("hero.p1") ?? tr("footer.companyParagraph") ?? siteName;
+
+  // Easy-to-update placeholders (replace later)
+  const twitterHandle = "@rosenberg_maintenance"; // TODO: update
+  const ogImage = locale === "he" ? "/og/he.jpg" : "/og/en.jpg"; // TODO: upload real images
+
+  // Map to standard OG locale tags
+  const ogLocale = locale === "he" ? "he_IL" : "en_US";
+
+  return {
+    metadataBase: new URL("https://www.rosenberg-maintenance.co.il/"),
+    manifest: "/site.webmanifest",
+    icons: {
+      icon: [
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        "/favicon.ico",
+      ],
+      apple: "/apple-touch-icon.png",
+      shortcut: "/favicon.ico",
+    },
+    title: {
+      default: title,
+      template: `%s | ${siteName}`,
+    },
+    description,
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        en: "/en",
+        he: "/he",
+        "x-default": "/en",
+      },
+    },
+    openGraph: {
+      type: "website",
+      locale: ogLocale,
+      siteName,
+      title,
+      description,
+      url: `/${locale}`,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: twitterHandle,
+      title,
+      description,
+      images: [ogImage],
+    },
+  } satisfies Metadata;
 }

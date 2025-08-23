@@ -49,7 +49,7 @@ export default async function LocaleLayout({
   const dir: "ltr" | "rtl" = locale === "he" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} className={`${notoSans.variable} ${notoSansHebrew.variable}`}>
+    <html lang={locale} dir={dir} className={`scroll-smooth ${notoSans.variable} ${notoSansHebrew.variable}`}>
       <head></head>
       <body>
         <div className="min-h-screen">

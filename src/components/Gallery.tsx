@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 interface GalleryImage {
@@ -207,40 +208,40 @@ export default function Gallery() {
   const current = gallerySections[activeSection]?.images[activeIndex];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div id="gallery" className="container mx-auto max-w-7xl scroll-mt-24 px-4 py-8">
       <h2 className="mb-12 text-center text-4xl font-black">{t("gallery.title")}</h2>
 
       <div className="space-y-16">
         {gallerySections.map((section, sectionIdx) => (
-          <Card key={section.id} className="ring-border ring-1 shadow-lg !bg-foreground !text-background">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl sm:text-3xl font-bold mb-0">{section.title}</CardTitle>
-              <CardDescription className="mx-auto max-w-2xl text-base sm:text-lg !text-background/80">
+          <Card key={section.id} className="ring-border !bg-foreground !text-background shadow-lg ring-1">
+            <CardHeader className="">
+              <CardTitle className="mb-0 text-2xl font-bold sm:text-3xl">{section.title}</CardTitle>
+              <CardDescription className="!text-background/80 max-w-2xl text-base sm:text-lg">
                 {section.description}
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-5 md:gap-6 xl:grid-cols-6">
-        {section.images.map((image, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className="group focus:ring-ring cursor-pointer overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none"
-                  onClick={() => openModal(sectionIdx, idx)}
-                  aria-label={image.alt}
-                >
-          <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                      className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 transition-all duration-300 ease-in-out group-hover:bg-black/15" />
-                  </div>
-                </button>
-              ))}
+                {section.images.map((image, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className="group focus:ring-ring cursor-pointer overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                    onClick={() => openModal(sectionIdx, idx)}
+                    aria-label={image.alt}
+                  >
+                    <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                        className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/0 transition-all duration-300 ease-in-out group-hover:bg-black/15" />
+                    </div>
+                  </button>
+                ))}
               </div>
             </CardContent>
           </Card>

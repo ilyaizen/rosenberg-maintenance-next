@@ -20,10 +20,10 @@ export default function Process() {
   const bgImages = Array.from({ length: 6 }, (_, i) => `/images/about/${i + 1}.png`);
 
   return (
-    <section className="py-16">
+    <section id="process" className="mx-auto max-w-7xl scroll-mt-24 py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-black">{t("process.title")}</h2>
+          <h2 className="mb-4 text-4xl font-black">{t("process.title")}</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -48,7 +48,7 @@ export default function Process() {
 
                 {/* Large, faint icon overlay (under gradients) */}
                 <div className="absolute inset-0 z-0" aria-hidden="true">
-                  <Icon className="pointer-events-none absolute top-20 right-20 h-40 w-40 origin-top-right translate-x-1/2 -translate-y-1/2 text-white opacity-40 transition-transform duration-500 ease-out group-hover:scale-125" />
+                  <Icon className="pointer-events-none absolute top-8 right-8 h-15 w-15 origin-top-right translate-x-1/2 -translate-y-1/2 text-white opacity-50 transition-transform duration-500 ease-out group-hover:scale-200" />
                 </div>
 
                 {/* Overlays for readability (above icon) */}

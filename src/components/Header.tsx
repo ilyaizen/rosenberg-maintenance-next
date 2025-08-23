@@ -64,13 +64,7 @@ export default function Header() {
               aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}
               className="flex items-center gap-2"
             >
-              <Image
-                src="/whatsapp.svg"
-                alt="WhatsApp"
-                width={32}
-                height={32}
-                className="h-8 w-8 mx-2"
-              />
+              <Image src="/whatsapp.svg" alt="WhatsApp" width={32} height={32} className="mx-2 h-8 w-8" />
               <div className="hidden leading-0 sm:block">
                 <div className="text-muted-foreground text-xs">{t("header.callNow")}:</div>
                 <span className="text-sm font-black">

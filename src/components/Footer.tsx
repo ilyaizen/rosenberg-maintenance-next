@@ -39,7 +39,7 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-4 text-lg font-semibold">{t("footer.quickLinks")}</h3>
-            <ul className="space-y-2 font-bold underline">
+            <ul className="space-y-2 underline">
               <li>
                 <a href="#process" className="text-background/80 hover:text-background transition-colors">
                   {t("footer.process")}
@@ -79,20 +79,22 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold">{t("footer.contactDetails")}</h3>
             <ul className="text-background/80 space-y-2 underline">
               <li>
-                <a href="https://maps.app.goo.gl/3Vf9RD2xhw58uYhj9" target="_blank" className="hover:text-background font-bold">{t("footer.location")}</a>
-                </li>
+                <a href="https://maps.app.goo.gl/3Vf9RD2xhw58uYhj9" target="_blank" className="hover:text-background">
+                  {t("footer.location")}
+                </a>
+              </li>
               <li>
                 <a
                   href="https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number"
                   target="_blank"
-                  className="hover:text-background transition-colors font-bold"
+                  className="hover:text-background transition-colors"
                 >
                   <span>{t("footer.whatsapp")}:&nbsp;</span>
                   <span className="force-ltr inline">055-920-6313</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:ben@rosenberg-maintenance.co.il" className="font-bold hover:text-background transition-colors">
+                <a href="mailto:ben@rosenberg-maintenance.co.il" className="hover:text-background transition-colors">
                   {t("footer.email")}
                 </a>
               </li>

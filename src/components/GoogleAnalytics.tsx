@@ -1,5 +1,6 @@
 "use client";
-import { useEffect } from 'react';
+
+import { useEffect } from "react";
 
 declare global {
   interface Window {
@@ -8,17 +9,17 @@ declare global {
   }
 }
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-SWR49KDTVF';
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-SWR49KDTVF";
 
 export default function GoogleAnalytics() {
   useEffect(() => {
     // Create script for gtag
-    const gtagScript = document.createElement('script');
+    const gtagScript = document.createElement("script");
     gtagScript.async = true;
-  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
 
     // Create script for configuration
-    const configScript = document.createElement('script');
+    const configScript = document.createElement("script");
     configScript.innerHTML = `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}

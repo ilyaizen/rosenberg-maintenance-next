@@ -51,13 +51,7 @@ export default function CTAButtons({
           aria-label={`${t("header.callNow")}: ${phoneDisplay}`}
           className="flex items-center justify-center gap-3 sm:gap-4"
         >
-          <Image
-            src="/whatsapp.svg"
-            alt="WhatsApp"
-            width={40}
-            height={40}
-            className="h-10 w-10 me-3"
-          />
+          <Image src="/whatsapp.svg" alt="WhatsApp" width={40} height={40} className="me-3 h-10 w-10" />
           <span className="flex min-w-0 flex-col text-end leading-tight">
             <span className="text-muted-foreground text-xs">{t("header.callNow")}:</span>
             <span className="force-ltr text-primary inline-block text-xl font-black">{phoneDisplay}</span>

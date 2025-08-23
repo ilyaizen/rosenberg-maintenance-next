@@ -1,13 +1,13 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Providers from "@/components/Providers";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { GoogleTagManagerNoScript, GoogleTagManagerScript } from "@/components/GoogleTagManager";
+import Header from "@/components/Header";
+import Providers from "@/components/Providers";
 import RouteAnalytics from "@/components/RouteAnalytics";
 import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
 import { Noto_Sans, Noto_Sans_Hebrew } from "next/font/google";
 import { notFound } from "next/navigation";
 import type React from "react";
@@ -84,11 +84,7 @@ export function generateStaticParams() {
 }
 
 // Localized metadata for each locale
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) return {};
@@ -141,7 +137,7 @@ export async function generateMetadata({
       template: `%s | ${siteName}`,
     },
     description,
-  keywords,
+    keywords,
     alternates: {
       canonical: `/${locale}`,
       languages: {

@@ -1,6 +1,7 @@
 "use client";
-import { useEffect } from "react";
+
 import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -21,9 +22,9 @@ export default function RouteAnalytics() {
       const w = window as unknown as WindowAnalytics;
       if (typeof w.gtag === "function" && GA_ID) {
         w.gtag("event", "page_view", {
-        page_path: pathname,
-        page_location: typeof window !== "undefined" ? window.location.href : url,
-        page_title: document.title,
+          page_path: pathname,
+          page_location: typeof window !== "undefined" ? window.location.href : url,
+          page_title: document.title,
         });
       }
     }
@@ -33,10 +34,10 @@ export default function RouteAnalytics() {
       const w = window as unknown as WindowAnalytics;
       if (Array.isArray(w.dataLayer)) {
         w.dataLayer.push({
-        event: "pageview",
-        page_path: pathname,
-        page_location: typeof window !== "undefined" ? window.location.href : url,
-        page_title: document.title,
+          event: "pageview",
+          page_path: pathname,
+          page_location: typeof window !== "undefined" ? window.location.href : url,
+          page_title: document.title,
         });
       }
     }

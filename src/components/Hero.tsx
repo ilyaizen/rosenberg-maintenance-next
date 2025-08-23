@@ -67,7 +67,7 @@ export default function Hero() {
 
       {/* Cancel out the parent scaleX for content so text/icons are not mirrored */}
       <div
-        className="relative z-20 mx-auto w-full max-w-7xl px-4 opacity-90 sm:px-6 lg:px-8"
+        className="relative z-20 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
         style={{ transform: dir === "rtl" ? "scaleX(-1)" : undefined }}
       >
         {/* Faded watermark logo for both directions; positioned per locale */}

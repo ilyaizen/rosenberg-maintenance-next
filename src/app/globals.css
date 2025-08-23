@@ -76,6 +76,8 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  /* Global text shadow color (50% opacity of primary in light) */
+  --text-shadow-color: color-mix(in oklab, var(--primary) 50%, transparent);
   /* Sidebar colors should also follow the main theme tokens */
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
@@ -112,6 +114,8 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+  /* In dark, use primary-foreground at 50% for text shadow */
+  --text-shadow-color: color-mix(in oklab, var(--primary-foreground) 80%, transparent);
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--foreground);
@@ -125,6 +129,8 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    /* Apply a subtle, theme-aware text shadow to all text */
+    text-shadow: 1px 1px 1px var(--text-shadow-color);
   }
   body {
     /* Ensure the default font family uses our Noto stack so weight utilities (e.g. font-black) work */

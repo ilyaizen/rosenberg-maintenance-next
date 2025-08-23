@@ -1,17 +1,18 @@
 "use client";
-import { useEffect } from 'react';
+
+import { useEffect } from "react";
 
 declare global {
   interface Window {
-  dataLayer: unknown[];
+    dataLayer: unknown[];
   }
 }
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-KR7XG3H7';
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KR7XG3H7";
 
 export function GoogleTagManagerScript() {
   useEffect(() => {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -19,7 +20,7 @@ export function GoogleTagManagerScript() {
       })(window,document,'script','dataLayer','${GTM_ID}');`;
 
     // Insert the script as high as possible in the head
-    const firstScript = document.getElementsByTagName('script')[0];
+    const firstScript = document.getElementsByTagName("script")[0];
     if (firstScript && firstScript.parentNode) {
       firstScript.parentNode.insertBefore(script, firstScript);
     } else {
@@ -42,7 +43,7 @@ export function GoogleTagManagerNoScript() {
         src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
         height="0"
         width="0"
-        style={{ display: 'none', visibility: 'hidden' }}
+        style={{ display: "none", visibility: "hidden" }}
       />
     </noscript>
   );

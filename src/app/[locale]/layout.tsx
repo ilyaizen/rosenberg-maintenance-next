@@ -97,6 +97,13 @@ export async function generateMetadata({
   const siteName = tr("companyName") ?? "Rosenberg Maintenance";
   const title = tr("seo.title") ?? tr("hero.title") ?? siteName;
   const description = tr("seo.description") ?? tr("hero.p1") ?? tr("footer.companyParagraph") ?? siteName;
+  const keywordsRaw = tr("seo.keywords");
+  const keywords = keywordsRaw
+    ? keywordsRaw
+        .split(",")
+        .map((k) => k.trim())
+        .filter(Boolean)
+    : undefined;
 
   // Easy-to-update placeholders (replace later)
   const twitterHandle = "@rosenberg_maintenance"; // TODO: update
@@ -122,6 +129,7 @@ export async function generateMetadata({
       template: `%s | ${siteName}`,
     },
     description,
+  keywords,
     alternates: {
       canonical: `/${locale}`,
       languages: {

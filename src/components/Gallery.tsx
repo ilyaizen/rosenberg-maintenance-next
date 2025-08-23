@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 interface GalleryImage {
   src: string;
@@ -211,16 +212,15 @@ export default function Gallery() {
 
       <div className="space-y-16">
         {gallerySections.map((section, sectionIdx) => (
-          <div
-            key={section.id}
-            className="bg-card text-card-foreground ring-border rounded-xl p-6 shadow-lg ring-1 sm:p-8"
-          >
-            <div className="mb-6 text-center sm:mb-8">
-              <h3 className="mb-2 text-2xl font-bold sm:mb-4">{section.title}</h3>
-              <p className="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">{section.description}</p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-5 md:gap-6 xl:grid-cols-6">
+          <Card key={section.id} className="ring-border ring-1 shadow-lg">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl sm:text-3xl font-bold mb-0">{section.title}</CardTitle>
+              <CardDescription className="mx-auto max-w-2xl text-base sm:text-lg">
+                {section.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-5 md:gap-6 xl:grid-cols-6">
               {section.images.map((image, idx) => (
                 <button
                   key={idx}
@@ -241,8 +241,9 @@ export default function Gallery() {
                   </div>
                 </button>
               ))}
-            </div>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
 

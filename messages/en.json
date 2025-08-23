@@ -1,13 +1,13 @@
 {
   "companyName": "Rosenberg Maintenance",
   "header": {
-    "callNow": "Call Now",
+    "callNow": "Call for a free consultation",
     "scheduleService": "Schedule Service"
   },
   "hero": {
     "title": "Professional Roof & Balcony Waterproofing Solutions",
     "p1": "Advanced polyurea waterproofing for maximum protection.",
-    "p2": "Specialized in sealing high-traffic roofs with technical installations and equipment.",
+    "p2": "Experts in polyurea waterproofing and coating using top-grade polymer materials, spray-applied for a uniform, long-lasting finish. We specialize in heavily-loaded and dense roofs, including solar arrays, water heaters, AC units, technical towers, and other installations.",
     "cta": "Schedule Service"
   },
   "card": {
@@ -22,7 +22,7 @@
     "process": "Our Process",
     "gallery": "Examples Gallery",
     "contactDetails": "Contact Details",
-    "location": "Kfar Hanasi, North",
+    "location": "Kibbutz Kfar HaNassi, Northern District, Israel",
     "whatsapp": "WhatsApp:",
     "email": "ben@rosenberg-maintenance.co.il",
     "copyright": "© 2025 Rosenberg Maintenance. All rights reserved. Expert solutions for coating roofs with polyurea."
@@ -62,7 +62,7 @@
       "alt": "Roof sealing with solar system - image {num}"
     },
     "section2": {
-      "title": "Balcony sealing with Neodor FT elastic system",
+      "title": "Balcony sealing with FT elastic system",
       "description": "Flexible, advanced sealing solutions for balconies",
       "alt": "Balcony sealing with elastic system - image {num}"
     },

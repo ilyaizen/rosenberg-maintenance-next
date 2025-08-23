@@ -16,7 +16,13 @@ export default function Hero() {
   const { theme } = useTheme();
   const PHONE_DISPLAY = "055-920-6313";
   const PHONE_TEL = "+972559206313";
-  const logoSrc = theme === "dark" ? "/rosenberg-maintenance-svg-full.he.white.svg" : "/rosenberg-maintenance-svg-full.he.svg";
+  // Choose logo based on locale; use white variant for Hebrew dark theme when available
+  const logoSrc =
+    locale === "he"
+      ? theme === "dark"
+        ? "/rosenberg-maintenance-svg-full.he.white.svg"
+        : "/rosenberg-maintenance-svg-full.he.svg"
+      : "/rosenberg-maintenance-svg-full.en.svg";
 
   return (
     <section
@@ -63,36 +69,35 @@ export default function Hero() {
         className="relative z-20 mx-auto w-full max-w-7xl px-4 opacity-90 sm:px-6 lg:px-8"
         style={{ transform: dir === "rtl" ? "scaleX(-1)" : undefined }}
       >
-        {dir === "rtl" && (
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-0 flex items-center pl-4 sm:pl-8"
-            aria-hidden="true"
-          >
-            {/* Wrapper to position the radial gradient behind the logo at the same size */}
-            <div className="relative">
-              {/* Radial gradient glow: theme background center to transparent edges */}
-              <div
-                className="absolute inset-0 blur-xl"
-                style={{
-                  background:
-                    "radial-gradient(circle, var(--background) 0%, color-mix(in oklab, var(--background) 85%, transparent) 50%, transparent 100%)",
-                }}
-                aria-hidden="true"
-              />
-              <Image
-                style={{ filter: "drop-shadow(1px 1px 1px rgba(53, 89, 106, .8))" }}
-                src={logoSrc}
-                alt="rosenberg-maintenance-logo"
-                width={1200}
-                height={1200}
-                priority={false}
-                className="relative z-10 h-40 w-auto select-none sm:h-56 md:h-64 lg:h-80 xl:h-[28rem]"
-                sizes="(max-width: 640px) 10rem, (max-width: 768px) 14rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 28rem"
-                draggable={false}
-              />
-            </div>
+        {/* Faded watermark logo for both directions; positioned per locale */}
+        <div
+          className={`pointer-events-none absolute inset-y-0 ${dir === "rtl" ? "left-0 pl-4 sm:pl-8" : "right-0 pr-4 sm:pr-8"} z-0 flex items-center`}
+          aria-hidden="true"
+        >
+          {/* Wrapper to position the radial gradient behind the logo at the same size */}
+          <div className="relative">
+            {/* Radial gradient glow: theme background center to transparent edges */}
+            <div
+              className="absolute inset-0 blur-xl"
+              style={{
+                background:
+                  "radial-gradient(circle, var(--background) 0%, color-mix(in oklab, var(--background) 85%, transparent) 50%, transparent 100%)",
+              }}
+              aria-hidden="true"
+            />
+            <Image
+              style={{ filter: "drop-shadow(1px 1px 1px rgba(53, 89, 106, .8))" }}
+              src={logoSrc}
+              alt="rosenberg-maintenance-logo"
+              width={1200}
+              height={1200}
+              priority={false}
+              className="relative z-10 h-40 w-auto select-none sm:h-56 md:h-64 lg:h-80 xl:h-[28rem]"
+              sizes="(max-width: 640px) 10rem, (max-width: 768px) 14rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 28rem"
+              draggable={false}
+            />
           </div>
-        )}
+        </div>
         <div className="relative z-10 max-w-2xl">
           <h1 className="mb-6 text-4xl leading-tight font-black md:text-5xl lg:text-6xl">{t("hero.title")}</h1>
           <div className="flex flex-col items-center text-center">

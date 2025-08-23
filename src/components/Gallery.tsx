@@ -212,10 +212,10 @@ export default function Gallery() {
 
       <div className="space-y-16">
         {gallerySections.map((section, sectionIdx) => (
-          <Card key={section.id} className="ring-border ring-1 shadow-lg">
+          <Card key={section.id} className="ring-border ring-1 shadow-lg !bg-foreground !text-background">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl sm:text-3xl font-bold mb-0">{section.title}</CardTitle>
-              <CardDescription className="mx-auto max-w-2xl text-base sm:text-lg">
+              <CardDescription className="mx-auto max-w-2xl text-base sm:text-lg !text-background/80">
                 {section.description}
               </CardDescription>
             </CardHeader>

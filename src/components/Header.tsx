@@ -2,7 +2,7 @@
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-// import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
@@ -49,9 +49,9 @@ export default function Header() {
                 </a>
               </div>
             </div>
-            <ThemeToggle />
             <Button className="cta-btn px-6 hover:opacity-90">{t("header.scheduleService")}</Button>
-            {/* <LanguageSwitcher /> */}
+            <ThemeToggle />
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

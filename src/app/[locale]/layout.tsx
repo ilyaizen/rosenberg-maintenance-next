@@ -51,7 +51,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir} className={`scroll-smooth ${notoSans.variable} ${notoSansHebrew.variable}`}>
       <head></head>
-  <body className="overflow-x-hidden">
+      <body className="overflow-x-hidden">
         <div className="min-h-screen">
           <NextIntlClientProvider>
             <Providers>

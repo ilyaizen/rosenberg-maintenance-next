@@ -1,6 +1,9 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Providers from "@/components/Providers";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { GoogleTagManagerNoScript, GoogleTagManagerScript } from "@/components/GoogleTagManager";
+import RouteAnalytics from "@/components/RouteAnalytics";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -8,6 +11,7 @@ import type { Metadata } from "next";
 import { Noto_Sans, Noto_Sans_Hebrew } from "next/font/google";
 import { notFound } from "next/navigation";
 import type React from "react";
+import { Suspense } from "react";
 
 import "../globals.css";
 
@@ -53,6 +57,14 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir} className={`scroll-smooth ${notoSans.variable} ${notoSansHebrew.variable}`}>
       <head></head>
       <body className="overflow-x-hidden">
+        {/* GTM noscript for users without JS */}
+        <GoogleTagManagerNoScript />
+        {/* Initialize GTM and GA, then track route changes */}
+        <GoogleTagManagerScript />
+        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <RouteAnalytics />
+        </Suspense>
         <div className="min-h-screen">
           <NextIntlClientProvider>
             <Providers>

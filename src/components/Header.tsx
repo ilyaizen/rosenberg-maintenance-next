@@ -61,25 +61,33 @@ export default function Header() {
           {/* Phone number */}
           {/* use gap instead of space-x-* so it works in RTL */}
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-2">
-              <a href="https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number" aria-label="WhatsApp">
-                <Image
-                  src="/whatsapp.svg"
-                  style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }}
-                  alt="WhatsApp"
-                  width={32}
-                  height={32}
-                  className="h-8 w-8"
-                />
-              </a>
+            <a
+              href="https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number"
+              aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}
+              className="flex items-center gap-2"
+            >
+              <Image
+                src="/whatsapp.svg"
+                style={{ filter: "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2))" }}
+                alt="WhatsApp"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <div className="hidden leading-0 sm:block">
                 <div className="text-muted-foreground text-xs">{t("header.callNow")}:</div>
-                <a href={`tel:${PHONE_TEL}`} className="text-sm font-black">
+                <span className="text-sm font-black">
                   <span className="force-ltr inline-block">{PHONE_DISPLAY}</span>
-                </a>
+                </span>
               </div>
-            </div>
-            <Button className="cta-btn rounded-full px-6 hover:opacity-90">{t("header.scheduleService")}</Button>
+            </a>
+
+            {/* Turn the CTA button into a tel: link (similar to CTAButtons) */}
+            <Button asChild className="cta-btn rounded-full px-6 hover:opacity-90">
+              <a href={`tel:${PHONE_TEL}`} aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}>
+                {t("header.scheduleService")}
+              </a>
+            </Button>
             {/* <ThemeToggle />
             <LanguageSwitcher /> */}
           </div>

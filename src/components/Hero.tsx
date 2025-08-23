@@ -27,7 +27,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative mr-[calc(50%-50vw)] ml-[calc(50%-50vw)] flex min-h-[600px] w-screen items-center"
+  className="relative mr-[calc(50%-50vw)] ml-[calc(50%-50vw)] flex min-h-[600px] items-center overflow-hidden"
       style={{
         backgroundImage: "url(/roof-coating_cr.jpg)",
         backgroundSize: "cover",

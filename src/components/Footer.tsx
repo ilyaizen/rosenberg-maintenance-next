@@ -32,7 +32,7 @@ export default function Footer() {
                 className="hidden h-16 w-auto dark:block"
                 priority={false}
               />
-              <span className="text-lg font-semibold">{t("companyName")}</span>
+              <span className="text-lg font-black">{t("companyName")}</span>
             </div>
             <p className="text-background/80">{t("footer.companyParagraph")}</p>
           </div>
@@ -94,7 +94,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:ben@rosenberg-maintenance.co.il" className="hover:text-background transition-colors">
+                <a href="mailto:rosenbergahzakot@gmail.com" className="hover:text-background transition-colors">
                   {t("footer.email")}
                 </a>
               </li>

@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
+import { trackCtaCall, trackCtaWhatsApp } from "@/lib/gtm";
 
 type CTAButtonsProps = {
   className?: string;
@@ -31,6 +32,7 @@ export default function CTAButtons({
           href={`tel:${phoneTel}`}
           aria-label={`${t("header.callNow")}: ${phoneDisplay}`}
           className="flex items-center"
+          onClick={() => trackCtaCall("hero", phoneDisplay)}
         >
           <ArrowRight
             className={`${dir === "rtl" ? "ml-2" : "mr-2"} h-6 w-6`}
@@ -50,6 +52,7 @@ export default function CTAButtons({
           href="https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number"
           aria-label={`${t("header.callNow")}: ${phoneDisplay}`}
           className="flex items-center justify-center gap-3 sm:gap-4"
+          onClick={() => trackCtaWhatsApp("hero", phoneDisplay)}
         >
           <Image src="/whatsapp.svg" alt="WhatsApp" width={40} height={40} className="me-3 h-10 w-10" />
           <span className="flex min-w-0 flex-col text-end leading-tight">

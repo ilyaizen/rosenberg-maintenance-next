@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useCallback } from "react";
+import { trackCtaCall, trackCtaWhatsApp } from "@/lib/gtm";
 
 export default function Header() {
   const t = useTranslations();
@@ -21,6 +22,14 @@ export default function Header() {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  }, []);
+
+  const onHeaderCallClick = useCallback(() => {
+    trackCtaCall("header", PHONE_DISPLAY);
+  }, []);
+
+  const onHeaderWhatsAppClick = useCallback(() => {
+    trackCtaWhatsApp("header", PHONE_DISPLAY);
   }, []);
 
   return (
@@ -63,6 +72,7 @@ export default function Header() {
               href="https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number"
               aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}
               className="flex items-center gap-2"
+              onClick={onHeaderWhatsAppClick}
             >
               <Image src="/whatsapp.svg" alt="WhatsApp" width={32} height={32} className="mx-2 h-8 w-8" />
               <div className="hidden leading-0 sm:block">
@@ -75,7 +85,7 @@ export default function Header() {
 
             {/* Turn the CTA button into a tel: link (similar to CTAButtons) */}
             <Button asChild className="cta-btn rounded-full px-6 hover:opacity-90">
-              <a href={`tel:${PHONE_TEL}`} aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`}>
+              <a href={`tel:${PHONE_TEL}`} aria-label={`${t("header.callNow")}: ${PHONE_DISPLAY}`} onClick={onHeaderCallClick}>
                 {t("header.scheduleService")}
               </a>
             </Button>

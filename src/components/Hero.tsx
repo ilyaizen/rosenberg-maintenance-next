@@ -37,8 +37,8 @@ export default function Hero() {
         transform: dir === "rtl" ? "scaleX(-1)" : undefined,
       }}
     >
-      {/* Uniform 50% site background overlay (tokenized) */}
-      <div className="bg-background/25 pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
+      {/* Uniform 60% site background overlay (tokenized) */}
+      <div className="bg-background/60 pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
       {/* Direction-aware gradient via CSS class toggled by [dir] */}
       {/* Content-width gradient overlay (max-w-7xl), with a solid white side and fade to transparent. */}
       <div

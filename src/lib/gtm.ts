@@ -10,7 +10,12 @@ declare global {
 function pushGtmEvent(event: string, data: Record<string, unknown> = {}): void {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || ([] as unknown[]);
-  window.dataLayer.push({ event, ...data });
+  const payload = { event, ...data } as Record<string, unknown>;
+  if (process.env.NODE_ENV !== "production") {
+    // Helpful debug to ensure clicks are captured client-side
+    console.debug("GTM push", payload);
+  }
+  window.dataLayer.push(payload);
 }
 
 // Track a click on a phone CTA (tel: links)

@@ -12,6 +12,17 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KR7XG3H7";
 
 export function GoogleTagManagerScript() {
   useEffect(() => {
+    if (process.env.NODE_ENV !== "production") {
+      console.info("Loading GTM container:", GTM_ID);
+      if (!process.env.NEXT_PUBLIC_GTM_ID) {
+        console.warn(
+          "NEXT_PUBLIC_GTM_ID is not set. Using fallback:",
+          GTM_ID,
+          "— this may not match your GTM workspace. Set NEXT_PUBLIC_GTM_ID to your container ID and restart."
+        );
+      }
+    }
+
     const script = document.createElement("script");
     script.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

@@ -208,10 +208,10 @@ export default function Gallery() {
   const current = gallerySections[activeSection]?.images[activeIndex];
 
   return (
-    <div id="gallery" className="container mx-auto max-w-7xl scroll-mt-24 px-4 py-8">
-      <h2 className="mb-12 text-center text-4xl font-black">{t("gallery.title")}</h2>
+    <div id="gallery" className="container mx-auto max-w-7xl scroll-mt-24 px-4 mt-16">
+      <h2 className="text-center text-4xl font-black">{t("gallery.title")}</h2>
 
-      <div className="space-y-16">
+      <div className="space-y-8 mt-8 mb-16">
         {gallerySections.map((section, sectionIdx) => (
           <Card key={section.id} className="ring-border !bg-foreground !text-background shadow-lg ring-1">
             <CardHeader className="">

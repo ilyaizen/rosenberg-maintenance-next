@@ -93,7 +93,7 @@ export default function Hero() {
               width={1200}
               height={1200}
               priority={false}
-              className="relative z-10 h-36 w-auto opacity-90 select-none sm:h-48 sm:opacity-95 md:h-64 md:opacity-100 lg:h-80 xl:h-[28rem]"
+              className="relative z-10 h-36 w-auto opacity-70 select-none sm:h-48 md:h-64 lg:h-80 xl:h-[28rem]"
               sizes="(max-width: 640px) 9rem, (max-width: 768px) 12rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 28rem"
               draggable={false}
             />

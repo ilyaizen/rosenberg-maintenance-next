@@ -39,7 +39,7 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-4 text-lg font-semibold">{t("footer.quickLinks")}</h3>
-            <ul className="space-y-2 underline">
+            <ul className="space-y-2">
               <li>
                 <a href="#process" className="text-background/80 hover:text-background transition-colors">
                   {t("footer.process")}
@@ -55,7 +55,7 @@ export default function Footer() {
                   <Link
                     href={{ pathname }}
                     locale="en"
-                    className="text-background/80 hover:text-background transition-colors"
+                    className="text-background/80 hover:text-background underline transition-colors"
                   >
                     English
                   </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
                   <Link
                     href={{ pathname }}
                     locale="he"
-                    className="text-background/80 hover:text-background transition-colors"
+                    className="text-background/80 hover:text-background underline transition-colors"
                   >
                     עברית
                   </Link>

@@ -136,6 +136,11 @@
     /* Ensure the default font family uses our Noto stack so weight utilities (e.g. font-black) work */
     @apply bg-background text-foreground font-sans;
   }
+  /* Exclude footer from global text-shadow */
+  footer,
+  footer * {
+    text-shadow: none;
+  }
 }
 
 /* Honor reduced motion preference for scrolling */

@@ -24,12 +24,22 @@ export default function Header() {
     }
   }, []);
 
-  const onHeaderCallClick = useCallback(() => {
+  const onHeaderCallClick = useCallback((e: React.MouseEvent) => {
     trackCtaCall("header", PHONE_DISPLAY);
+    // Prevent immediate navigation to allow GTM to capture the event
+    e.preventDefault();
+    setTimeout(() => {
+      if (typeof window !== "undefined") window.location.href = `tel:${PHONE_TEL}`;
+    }, 200);
   }, []);
 
-  const onHeaderWhatsAppClick = useCallback(() => {
+  const onHeaderWhatsAppClick = useCallback((e: React.MouseEvent) => {
     trackCtaWhatsApp("header", PHONE_DISPLAY);
+    e.preventDefault();
+    setTimeout(() => {
+      if (typeof window !== "undefined")
+        window.location.href = "https://api.whatsapp.com/send/?phone=972559206313&text&type=phone_number";
+    }, 200);
   }, []);
 
   return (

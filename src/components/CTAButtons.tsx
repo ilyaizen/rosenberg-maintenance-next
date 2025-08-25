@@ -25,7 +25,7 @@ export default function CTAButtons({
   return (
     <div
       dir={dir}
-      className={`bg-primary/10 ring-primary/10 dark:bg-primary/20 dark:ring-primary/15 mt-6 flex flex-wrap items-stretch justify-center gap-3 rounded-full p-3 shadow-sm ring-1 sm:gap-4 sm:p-4 ${className}`}
+      className={`sm:bg-primary/10 sm:ring-primary/10 sm:dark:bg-primary/20 sm:dark:ring-primary/15 mt-6 flex flex-wrap items-stretch justify-center gap-3 rounded-full p-3 sm:shadow-sm sm:ring-1 sm:gap-4 sm:p-4 ${className}`}
     >
       <Button asChild variant="cta" size="lg" className="cta-lg rounded-full px-4 py-8 text-xl hover:opacity-95">
         <a

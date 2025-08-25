@@ -54,7 +54,11 @@ export default async function LocaleLayout({
   const dir: "ltr" | "rtl" = locale === "he" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} className={`scroll-smooth ${notoSans.variable} ${notoSansHebrew.variable}`}>
+    <html
+      lang={locale}
+      dir={dir}
+      className={`scroll-smooth overflow-x-hidden ${notoSans.variable} ${notoSansHebrew.variable}`}
+    >
       <head></head>
       <body className="overflow-x-hidden">
         {/* GTM noscript for users without JS */}

@@ -27,7 +27,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative mr-[calc(50%-50vw)] ml-[calc(50%-50vw)] flex min-h-[460px] items-center overflow-hidden py-14 sm:min-h-[520px] sm:py-20 md:min-h-[600px] md:py-24"
+      className="relative flex min-h-[460px] items-center overflow-hidden py-14 sm:min-h-[520px] sm:py-20 md:min-h-[600px] md:py-24"
       style={{
         backgroundImage: "url(/roof-coating_cr.jpg)",
         backgroundSize: "cover",
@@ -103,7 +103,7 @@ export default function Hero() {
           <h1 className="mb-6 text-3xl leading-tight font-black md:text-4xl lg:text-5xl">{t("hero.title")}</h1>
           <div className="flex flex-col items-center text-center">
             <div className="mb-8 space-y-2">
-              <p className="text-lg font-bold">{t("hero.p1")}</p>
+              <p className="text-xl font-bold text-yellow-300">{t("hero.p1")}</p>
               <p className="text-lg font-medium">{t("hero.p2")}</p>
             </div>
             <CTAButtons phoneDisplay={PHONE_DISPLAY} phoneTel={PHONE_TEL} />
